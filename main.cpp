@@ -11,7 +11,7 @@
 int main() {
     //seed the rand function
     srand(time(NULL));
-
+    return 0;
     //generate and display the test data
     testData testdata(rand() % (TEST_DATA_BASE + 1) + TEST_DATA_OFFSET);
     int numTestData = testdata.getNumData();
