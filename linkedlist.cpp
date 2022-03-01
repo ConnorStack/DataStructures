@@ -1,3 +1,4 @@
 /*
- * your comment header here
+ * File: linkedlist.cpp
+ * Author: Connor Stack
  */
