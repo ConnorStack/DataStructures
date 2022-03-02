@@ -5,11 +5,15 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 #include "data.h"
+#include<iostream>
+using std::cout;
+using  std::endl;
 
 class LinkedList{
-private:
-    Node *head;
 public:
+    LinkedList();
+    ~LinkedList();
+    Node *head;
     bool addNode(int, string*);
     bool deleteNode(int);
     bool getNode(int, Data*);
@@ -17,6 +21,7 @@ public:
     int getCount();
     bool clearList();
     bool exists(int);
+private:
 
 };
 #endif //LINKEDLIST_H

@@ -4,36 +4,77 @@
  */
 #include "linkedlist.h"
 
+LinkedList::LinkedList(){
+    Node *head = NULL;
+
+    Node *node1;
+    node1 = new Node;
+
+    Node *node2;
+    node2 = new Node;
+
+    Node *node3;
+    node3 = new Node;
+
+    node1->data.id=1;
+    node1->data.data = "First";
+
+    node2->data.id = 2;
+    node2->data.data = "Second";
+
+    node3->data.id = 3;
+    node3->data.data = "Third";
+    head = node1;
+    node1->prev = NULL;
+    node1->next = node2;
+    node2->prev  = node1;
+    node2->next = node3;
+    node3->next = NULL;
+    node3->prev = node2;
+    //printList();
+    Node *current = head;
+    while(current){
+        cout << current->data.id << " : " << current->data.data << endl; 
+        current = current->next;
+    }
+}
+LinkedList::~LinkedList(){
+
+}
+
 bool addNode(int, string*){
 
     return false;
 }
 
-bool deleteNode(int){
+bool LinkedList::deleteNode(int){
 
     return false;
 }
 
-bool getNode(int, Data*){
+bool LinkedList::getNode(int, Data*){
 
     return false;
 }
 
-void printList(bool = false){
-
+void LinkedList::printList(bool backward){
+    Node *current = head;
+    while(current){
+        cout << current->data.id << " : " << current->data.data << endl; 
+    }
 }
 
-int getCount(){
+int LinkedList::getCount(){
 
     return 0;
 }
 
-bool clearList(){
+bool LinkedList::clearList(){
 
     return false;
 }
 
-bool exists(int){
-    
+bool LinkedList::exists(int){
+
     return false;
 }

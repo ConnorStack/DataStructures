@@ -11,7 +11,6 @@
 int main() {
     //seed the rand function
     srand(time(NULL));
-    return 0;
     //generate and display the test data
     testData testdata(rand() % (TEST_DATA_BASE + 1) + TEST_DATA_OFFSET);
     int numTestData = testdata.getNumData();
@@ -23,10 +22,11 @@ int main() {
     Data tmpData;
 
     //making linked list object
-    cout << "creating the linked list...";
+    cout << "creating the linked list..."<<endl;  //DELETE endl  LATER
     LinkedList list;
     cout << "done" << endl << endl;
 
+    return 0;
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList();
