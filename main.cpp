@@ -25,12 +25,20 @@ int main() {
     cout << "creating the linked list..."<<endl;  //DELETE endl  LATER 
     LinkedList list;
     cout << "done" << endl << endl;
-    
+    //__________________________________________________________________________________________
+    string str = "zero";
     list.printList(false);//delete later
     cout << endl; //delete later
     list.printList(true);//delete later
 
-    return 0;
+    list.addNode(0, &str);
+    cout << endl;
+    list.printList(false);//delete later
+    cout << endl; //delete later
+    list.printList(true);//delete later
+
+
+    return 0;//_________________________________________________________________________________
 
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;

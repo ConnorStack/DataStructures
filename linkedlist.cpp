@@ -39,14 +39,27 @@ LinkedList::LinkedList(){
 LinkedList::~LinkedList(){
 
 }
-void LinkedList::addHead(int index, string* info){
+void LinkedList::addHead(Node * node, int index, string* info){
+    //Prep new node
+    //Place it in front of current head
+    node->data.id = index;
+    node->data.data = *info;
+
+    head->prev = node;
+    node->next = head;
+    //Move head to point to new node 
+    node->prev=NULL;
+    head = node;
 
 }
-bool LinkedList::addNode(int index, string* info){
+bool LinkedList::addNode(int position, string* info){
     //if head = NULL, use headnode case
     //else if head = pointer, check if id of current is >, <, or = to id
     //if current-> next is null use tail case
-
+    int index = position;
+    //string *contents = info;
+    Node *newNode = new Node;
+    addHead(newNode, index, info);
     return false;
 }
 
