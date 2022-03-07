@@ -39,12 +39,14 @@ LinkedList::LinkedList(){
 LinkedList::~LinkedList(){
 
 }
+void LinkedList::addHead(int index, string* info){
 
+}
 bool LinkedList::addNode(int index, string* info){
     //if head = NULL, use headnode case
     //else if head = pointer, check if id of current is >, <, or = to id
     //if current-> next is null use tail case
-    
+
     return false;
 }
 

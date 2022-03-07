@@ -22,6 +22,7 @@ public:
     bool clearList();
     bool exists(int);
 private:
+    void addHead(int, string*);  
 
 };
 #endif //LINKEDLIST_H
