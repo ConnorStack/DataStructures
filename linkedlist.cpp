@@ -71,10 +71,11 @@ bool LinkedList::getNode(int, Data*){
 void LinkedList::printList(bool backward){
     cout << "Inside printList " << endl;
     Node *current = head;
-    
     cout << "Head mem in printlist: " << head <<endl;
-    
-    cout << "current: " << current->data.id << endl;
+    while(current){
+        cout << current->data.id << current->data.data <<endl;
+        current = current->next;
+    }
 
 }
 
