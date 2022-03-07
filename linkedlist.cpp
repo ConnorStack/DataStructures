@@ -5,7 +5,7 @@
 #include "linkedlist.h"
 
 LinkedList::LinkedList(){
-    Node *head = NULL;
+    //Node *head = NULL;
 
     Node *node1;
     node1 = new Node;
@@ -24,26 +24,37 @@ LinkedList::LinkedList(){
 
     node3->data.id = 3;
     node3->data.data = "Third";
+
     head = node1;
+    cout << "Head mem: " << head <<endl;
     node1->prev = NULL;
     node1->next = node2;
     node2->prev  = node1;
     node2->next = node3;
     node3->next = NULL;
     node3->prev = node2;
-    //printList();
-    Node *current = head;
-    while(current){
-        cout << current->data.id << " : " << current->data.data << endl; 
-        current = current->next;
-    }
+
 }
+
 LinkedList::~LinkedList(){
 
 }
 
-bool addNode(int, string*){
-
+bool LinkedList::addNode(int index, string* info){
+    /*cout << "Inside addNode " << endl;
+    Node *current = head;
+    Node *node = new Node;
+    
+    if(node->data.id > index){
+        current = current->next;
+    }
+    else if(node->data.id < index){
+        node->next = current;
+        node->prev = current->prev;
+        current->prev->next = node;
+        current->prev = node;
+    }
+    */
     return false;
 }
 
@@ -58,10 +69,13 @@ bool LinkedList::getNode(int, Data*){
 }
 
 void LinkedList::printList(bool backward){
+    cout << "Inside printList " << endl;
     Node *current = head;
-    while(current){
-        cout << current->data.id << " : " << current->data.data << endl; 
-    }
+    
+    cout << "Head mem in printlist: " << head <<endl;
+    
+    cout << "current: " << current->data.id << endl;
+
 }
 
 int LinkedList::getCount(){

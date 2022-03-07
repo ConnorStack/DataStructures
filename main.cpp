@@ -25,11 +25,14 @@ int main() {
     cout << "creating the linked list..."<<endl;  //DELETE endl  LATER
     LinkedList list;
     cout << "done" << endl << endl;
+    
+    list.printList();
 
     return 0;
+
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
-    list.printList();
+
     cout << endl;
 
     //adding all the test data to the list
