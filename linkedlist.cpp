@@ -72,11 +72,15 @@ void LinkedList::printList(bool backward){
     cout << "Inside printList " << endl;
     Node *current = head;
     cout << "Head mem in printlist: " << head <<endl;
-    while(current){
-        cout << current->data.id << current->data.data <<endl;
-        current = current->next;
+    if (!backward){
+        while(current){
+            cout << current->data.id << " : " << current->data.data << endl;
+            current = current->next;
+        }
     }
-
+    else{
+        //need to reverse the list
+    }
 }
 
 int LinkedList::getCount(){
