@@ -41,20 +41,10 @@ LinkedList::~LinkedList(){
 }
 
 bool LinkedList::addNode(int index, string* info){
-    /*cout << "Inside addNode " << endl;
-    Node *current = head;
-    Node *node = new Node;
+    //if head = NULL, use headnode case
+    //else if head = pointer, check if id of current is >, <, or = to id
+    //if current-> next is null use tail case
     
-    if(node->data.id > index){
-        current = current->next;
-    }
-    else if(node->data.id < index){
-        node->next = current;
-        node->prev = current->prev;
-        current->prev->next = node;
-        current->prev = node;
-    }
-    */
     return false;
 }
 
@@ -69,11 +59,9 @@ bool LinkedList::getNode(int, Data*){
 }
 
 void LinkedList::printList(bool backward){
-    cout << "Inside printList " << endl;
     Node *current = head;
-    cout << "Head mem in printlist: " << head <<endl;
-    backward = true;
     bool  tail = false;
+
     if (!backward){
         while(current){
             cout << current->data.id << " : " << current->data.data << endl;
@@ -94,7 +82,6 @@ void LinkedList::printList(bool backward){
             current = current->prev;
             
         }
-        
     }
 }
 

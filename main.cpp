@@ -22,11 +22,13 @@ int main() {
     Data tmpData;
 
     //making linked list object
-    cout << "creating the linked list..."<<endl;  //DELETE endl  LATER
+    cout << "creating the linked list..."<<endl;  //DELETE endl  LATER 
     LinkedList list;
     cout << "done" << endl << endl;
     
-    list.printList();
+    list.printList(false);//delete later
+    cout << endl; //delete later
+    list.printList(true);//delete later
 
     return 0;
 
