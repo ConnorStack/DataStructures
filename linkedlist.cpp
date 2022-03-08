@@ -52,14 +52,16 @@ void LinkedList::addHead(Node * node, int index, string* info){
     head = node;
 
 }
-bool LinkedList::addNode(int position, string* info){
+bool LinkedList::addNode(int index, string* info){
     //if head = NULL, use headnode case
     //else if head = pointer, check if id of current is >, <, or = to id
     //if current-> next is null use tail case
-    int index = position;
-    //string *contents = info;
-    Node *newNode = new Node;
-    addHead(newNode, index, info);
+    Node *newNode = new Node();
+    Node * current = head;
+    if(index < current->data.id){
+        addHead(newNode, index, info);
+        current = current->next;
+    }
     return false;
 }
 

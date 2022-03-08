@@ -26,16 +26,26 @@ int main() {
     LinkedList list;
     cout << "done" << endl << endl;
     //__________________________________________________________________________________________
-    string str = "zero";
+    string str1 = "one";
+    string str2 = "two";
+    string str3 = "three";
+    string str4 = "four";
+    
+    cout << "farward " << endl;
     list.printList(false);//delete later
-    cout << endl; //delete later
+    cout << "reverse" << endl; //delete later
     list.printList(true);//delete later
-
-    list.addNode(0, &str);
     cout << endl;
+
+    list.addNode(0, &str2);
+    list.addNode(3, &str3);
+    list.addNode(4, &str4);
+
+    cout << "farward " << endl;
     list.printList(false);//delete later
-    cout << endl; //delete later
+    cout << "reverse" << endl; //delete later
     list.printList(true);//delete later
+    cout << endl;
 
 
     return 0;//_________________________________________________________________________________
