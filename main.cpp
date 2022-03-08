@@ -26,10 +26,10 @@ int main() {
     LinkedList list;
     cout << "done" << endl << endl;
     //__________________________________________________________________________________________
-    string str1 = "one";
-    string str2 = "two";
-    string str3 = "three";
-    string str4 = "four";
+    string str1 = "adfsa";
+    string str2 = "dafda";
+    string str3 = "";
+    string str4 = "";
     
     cout << "farward " << endl;
     list.printList(false);//delete later
@@ -37,9 +37,10 @@ int main() {
     list.printList(true);//delete later
     cout << endl;
 
-    list.addNode(0, &str2);
-    list.addNode(3, &str3);
-    list.addNode(4, &str4);
+    if(list.addNode(7, &str2));
+    if(list.addNode(-1, &str3));
+    if(list.addNode(2, &str4));
+    if(list.addNode(1, &str1));
 
     cout << "farward " << endl;
     list.printList(false);//delete later

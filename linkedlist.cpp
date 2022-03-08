@@ -16,13 +16,13 @@ LinkedList::LinkedList(){
     Node *node3;
     node3 = new Node;
 
-    node1->data.id=1;
+    node1->data.id=3;
     node1->data.data = "First";
 
-    node2->data.id = 2;
+    node2->data.id = 5;
     node2->data.data = "Second";
 
-    node3->data.id = 3;
+    node3->data.id = 7;
     node3->data.data = "Third";
 
     head = node1;
@@ -56,13 +56,28 @@ bool LinkedList::addNode(int index, string* info){
     //if head = NULL, use headnode case
     //else if head = pointer, check if id of current is >, <, or = to id
     //if current-> next is null use tail case
-    Node *newNode = new Node();
+     //this needs to be changed, new Node should be one of the last things  done, after validation.
     Node * current = head;
-    if(index < current->data.id){
+    bool addNode;
+
+    cout << "Head is " << head <<endl;
+    cout << "current data.id in addNode: " << current->data.id << endl;
+    cout << "current incoming index: " << index << endl;
+    cout << "current incoming info: " << *info << endl;
+
+    if((index < 0) || (*info == "")){
+        cout << "ID must be positive . Info cannot be empty" << endl;//debug only 
+        addNode = false;
+    }
+    else if((index < current->data.id)){
+        Node * newNode = new Node();
+        cout << "current data.id in addHead validation if statement: " << current->data.id << endl;
         addHead(newNode, index, info);
         current = current->next;
+        cout << "current data.id in addHead after increment: " << current->data.id << endl;
+        addNode = true;
     }
-    return false;
+    return addNode;
 }
 
 bool LinkedList::deleteNode(int){
