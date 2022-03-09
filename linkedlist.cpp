@@ -6,34 +6,6 @@
 
 LinkedList::LinkedList(){
     head = NULL;
-/*
-    Node *node1;
-    node1 = new Node;
-
-    Node *node2;
-    node2 = new Node;
-
-    Node *node3;
-    node3 = new Node;
-
-    node1->data.id=3;
-    node1->data.data = "First";
-
-    node2->data.id = 5;
-    node2->data.data = "Second";
-
-    node3->data.id = 7;
-    node3->data.data = "Third";
-
-    head = node1;
-    cout << "Head mem: " << head <<endl;
-    node1->prev = NULL;
-    node1->next = node2;
-    node2->prev  = node1;
-    node2->next = node3;
-    node3->next = NULL;
-    node3->prev = node2;
-*/
 }
 
 LinkedList::~LinkedList(){
@@ -65,21 +37,24 @@ bool LinkedList::addNode(int index, string* info){
     bool addedNode = false;
     Node * current = head;
 
-    cout << "Head memory is " << head <<endl;
-    cout << "Current memory is" << current << endl;
+    cout << "Head memory is " << head <<endl;//debug only 
+    cout << "Current memory is" << current << endl;//debug only 
 
     if((index < 0) || (*info == "")){
         cout << "ID must be positive . Info cannot be empty" << endl;//debug only 
         addedNode = false;
     }
     else if((head == NULL ) || (index < current->data.id)){ 
-        cout << "inside headnode if-statement "  << endl;
+        cout << "inside headnode if-statement "  << endl;//debug only 
         addHead(current, index, info);
         addedNode =  true;
     }
-    else{
-        
+    while(current != NULL){
+        //traverse list to determine when ID is less than current ID, addMiddle
+        //traverse list to determine tail. One idea is to have a current-prev 
+        //so when current->NULL current prev can traverse backwards??? Rough plan.
     }
+    
     return addedNode;
 }
 
