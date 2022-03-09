@@ -50,8 +50,6 @@ void LinkedList::addHead(Node * current, int index, string* info){
         head = newNode;
     }
     else{
-        newNode->data.id = index;
-        newNode->data.data = *info;
         head->prev = newNode; 
         newNode->next = head;
         newNode->prev=NULL;
@@ -80,7 +78,7 @@ bool LinkedList::addNode(int index, string* info){
         addedNode =  true;
     }
     else{
-        //while(current->)
+        
     }
     return addedNode;
 }
