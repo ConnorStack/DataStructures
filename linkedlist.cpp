@@ -28,8 +28,17 @@ void LinkedList::addHead(Node * current, int index, string* info){
         head = newNode;
     }
 }
-void addMiddle(Node*, int, string*){
+void LinkedList::addMiddle(Node* current, int index, string* info){
+    Node * node = new Node;
     
+    node->data.id = index;
+    node->data.data = *info;
+  
+    node->next = current;
+    node->prev = current->prev;
+    current->prev->next= node; //Make sure this step is possible. There must be a node before current.
+    current->prev = node;
+
 }
 bool LinkedList::addNode(int index, string* info){
     //when current id is less than the next id, stop and insert new id
@@ -37,8 +46,8 @@ bool LinkedList::addNode(int index, string* info){
     bool addedNode = false;
     Node * current = head;
 
-    cout << "Head memory is " << head <<endl;//debug only 
-    cout << "Current memory is" << current << endl;//debug only 
+    cout << endl << "Head memory is: " << head <<endl;//debug only 
+    cout << "Current memory is: " << current << endl;//debug only 
 
     if((index < 0) || (*info == "")){
         cout << "ID must be positive . Info cannot be empty" << endl;//debug only 
@@ -50,9 +59,20 @@ bool LinkedList::addNode(int index, string* info){
         addedNode =  true;
     }
     while(current != NULL){
-        //traverse list to determine when ID is less than current ID, addMiddle
-        //traverse list to determine tail. One idea is to have a current-prev 
-        //so when current->NULL current prev can traverse backwards??? Rough plan.
+        cout << "inside while loop " << endl;
+        Node *previous = current->prev; //I plan to use this for the tail case
+        if(index > current->data.id){
+            cout << "inside while if statement " << endl;
+            addMiddle(current, index, info);
+        }
+        else{
+            //eventually tail  case, for now a way out of while loop;
+            current = NULL;
+            addedNode = false;
+        }
+            //traverse list to determine when ID is less than current ID, addMiddle
+            //traverse list to determine tail. One idea is to have a current-prev 
+            //so when current->NULL current prev can traverse backwards??? Rough plan.
     }
     
     return addedNode;
