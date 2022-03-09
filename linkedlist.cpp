@@ -6,7 +6,7 @@
 
 LinkedList::LinkedList(){
     head = NULL;
-
+/*
     Node *node1;
     node1 = new Node;
 
@@ -33,23 +33,33 @@ LinkedList::LinkedList(){
     node2->next = node3;
     node3->next = NULL;
     node3->prev = node2;
-
+*/
 }
 
 LinkedList::~LinkedList(){
 
 }
-void LinkedList::addHead(Node * node, int index, string* info){
+void LinkedList::addHead(Node * current, int index, string* info){
     //Prep new node
-    //Place it in front of current head
-    node->data.id = index;
-    node->data.data = *info;
+    Node * newNode = new Node;
+    newNode->data.id = index;
+    newNode->data.data = *info;
 
-    head->prev = node;
-    node->next = head;
-    //Move head to point to new node 
-    node->prev=NULL;
-    head = node;
+    if(head == NULL){
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        head = newNode;
+    }
+    else{
+        //Place it in front of current head
+        newNode->data.id = index;
+        newNode->data.data = *info;
+        head->prev = newNode; //head->
+        newNode->next = head;
+        //Move head to point to new node 
+        newNode->prev=NULL;
+        head = newNode;
+    }
 
 }
 bool LinkedList::addNode(int index, string* info){
@@ -57,27 +67,21 @@ bool LinkedList::addNode(int index, string* info){
     //else if head = pointer, check if id of current is >, <, or = to id
     //if current-> next is null use tail case
      //this needs to be changed, new Node should be one of the last things  done, after validation.
+    bool addedNode;
     Node * current = head;
-    bool addNode;
 
     cout << "Head is " << head <<endl;
-    cout << "current data.id in addNode: " << current->data.id << endl;
-    cout << "current incoming index: " << index << endl;
-    cout << "current incoming info: " << *info << endl;
 
     if((index < 0) || (*info == "")){
         cout << "ID must be positive . Info cannot be empty" << endl;//debug only 
-        addNode = false;
+        addedNode = false;
     }
-    else if((index < current->data.id)){
-        Node * newNode = new Node();
-        cout << "current data.id in addHead validation if statement: " << current->data.id << endl;
-        addHead(newNode, index, info);
-        current = current->next;
-        cout << "current data.id in addHead after increment: " << current->data.id << endl;
-        addNode = true;
+    else if((head == NULL ) || (index < current->data.id)){ 
+        cout << "inside headnode if-statement "  << endl;
+        addHead(current, index, info);
+        addedNode =  true;
     }
-    return addNode;
+    return addedNode;
 }
 
 bool LinkedList::deleteNode(int){

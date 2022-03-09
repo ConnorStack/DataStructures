@@ -29,18 +29,15 @@ int main() {
     string str1 = "adfsa";
     string str2 = "dafda";
     string str3 = "";
-    string str4 = "";
     
-    cout << "farward " << endl;
-    list.printList(false);//delete later
-    cout << "reverse" << endl; //delete later
-    list.printList(true);//delete later
-    cout << endl;
+    
 
     if(list.addNode(7, &str2));
-    if(list.addNode(-1, &str3));
-    if(list.addNode(2, &str4));
+    if(list.addNode(-5, &str3));
+    if(list.addNode(2, &str3));
     if(list.addNode(1, &str1));
+    if(list.addNode(7, &str2));
+    if(list.addNode(5, &str3));
 
     cout << "farward " << endl;
     list.printList(false);//delete later
