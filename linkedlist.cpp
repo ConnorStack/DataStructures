@@ -64,7 +64,7 @@ void addMiddle(Node*, int, string*){
 bool LinkedList::addNode(int index, string* info){
     //when current id is less than the next id, stop and insert new id
     //if current-> next is null use tail case
-    bool addedNode;
+    bool addedNode = false;
     Node * current = head;
 
     cout << "Head memory is " << head <<endl;
@@ -78,6 +78,9 @@ bool LinkedList::addNode(int index, string* info){
         cout << "inside headnode if-statement "  << endl;
         addHead(current, index, info);
         addedNode =  true;
+    }
+    else{
+        //while(current->)
     }
     return addedNode;
 }
