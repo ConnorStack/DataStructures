@@ -58,23 +58,20 @@ bool LinkedList::addNode(int index, string* info){
         addHead(current, index, info);
         addedNode =  true;
     }
-    while(current != NULL){
-        cout << "inside while loop " << endl;
-        Node *previous = current->prev; //I plan to use this for the tail case
-        if(index > current->data.id){
-            cout << "inside while if statement " << endl;
+    else if(index > current->data.id){
+        while(current != NULL){
+            cout << "inside while loop " << endl;
+            Node *previous = current->prev; //I plan to use this for the tail case
+            
             addMiddle(current, index, info);
-        }
-        else{
             //eventually tail  case, for now a way out of while loop;
-            current = NULL;
+            current = NULL; //Just manually adding node until addMiddle is working better
             addedNode = false;
-        }
             //traverse list to determine when ID is less than current ID, addMiddle
             //traverse list to determine tail. One idea is to have a current-prev 
             //so when current->NULL current prev can traverse backwards??? Rough plan.
+        }
     }
-    
     return addedNode;
 }
 

@@ -37,7 +37,7 @@ int main() {
     if(list.addNode(5, &str2));
     if(list.addNode(4, &str1));
     if(list.addNode(1, &str2));
-    //if(list.addNode(2, &str3));
+    if(list.addNode(2, &str2));
     //if(list.addNode(0, &str3));
 
 
