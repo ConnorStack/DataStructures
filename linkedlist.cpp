@@ -40,7 +40,6 @@ LinkedList::~LinkedList(){
 
 }
 void LinkedList::addHead(Node * current, int index, string* info){
-    //Prep new node
     Node * newNode = new Node;
     newNode->data.id = index;
     newNode->data.data = *info;
@@ -51,26 +50,25 @@ void LinkedList::addHead(Node * current, int index, string* info){
         head = newNode;
     }
     else{
-        //Place it in front of current head
         newNode->data.id = index;
         newNode->data.data = *info;
-        head->prev = newNode; //head->
+        head->prev = newNode; 
         newNode->next = head;
-        //Move head to point to new node 
         newNode->prev=NULL;
         head = newNode;
     }
-
+}
+void addMiddle(Node*, int, string*){
+    
 }
 bool LinkedList::addNode(int index, string* info){
-    //if head = NULL, use headnode case
-    //else if head = pointer, check if id of current is >, <, or = to id
+    //when current id is less than the next id, stop and insert new id
     //if current-> next is null use tail case
-     //this needs to be changed, new Node should be one of the last things  done, after validation.
     bool addedNode;
     Node * current = head;
 
-    cout << "Head is " << head <<endl;
+    cout << "Head memory is " << head <<endl;
+    cout << "Current memory is" << current << endl;
 
     if((index < 0) || (*info == "")){
         cout << "ID must be positive . Info cannot be empty" << endl;//debug only 
