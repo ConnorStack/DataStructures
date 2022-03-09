@@ -5,7 +5,7 @@
 #include "linkedlist.h"
 
 LinkedList::LinkedList(){
-    //Node *head = NULL;
+    head = NULL;
 
     Node *node1;
     node1 = new Node;

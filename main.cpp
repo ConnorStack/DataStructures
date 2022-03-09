@@ -66,7 +66,7 @@ int main() {
             cout << "failed" << endl;
         }
     }
-    cout << endl;
+    cout << endl;//_____________________________________________________________________First AddNode Test below
 
     cout << "checking list forward...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
@@ -77,7 +77,7 @@ int main() {
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList(true);
     cout << endl;
-
+    //_____________________________________________________________________Printing forward and backward
     //randomly getting a few nodes
     int getid;
     for (int i = 0; i < 4; i++) {
