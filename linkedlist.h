@@ -23,7 +23,7 @@ public:
     bool exists(int);
 private:
     void addHead(Node*, int, string*);  
-    void addMiddle(Node*, int, string*);  
+    void addMiddle(Node*, Node*, int, string*);  
 
 };
 #endif //LINKEDLIST_H
