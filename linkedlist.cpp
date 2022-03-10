@@ -42,6 +42,7 @@ bool LinkedList::addNode(int index, string* info){
     Node * current = head;
     int method = 4;
     int * methodptr = &method;
+    cout << "current: " << &current << endl;
     while((valid) && (*methodptr >=3)){
         if((index < 0) || (*info =="")){
             valid = false;
