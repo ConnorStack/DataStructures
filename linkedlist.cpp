@@ -32,7 +32,7 @@ void LinkedList::addMiddle(Node* node, Node * current, int index, string* info){
     current->prev = node;
 }
 void LinkedList::addTail(Node*, Node*, int,  string*){
-    
+
 }
 
 bool LinkedList::addNode(int index, string* info){
@@ -42,7 +42,7 @@ bool LinkedList::addNode(int index, string* info){
     if((index >= 0) && (*info != "")){
         valid = true;
         while(current && !tail){
-            if(index > current->data.id){
+            if((index > current->data.id) &&(current->next !=NULL)){
                 current = current->next;
             }
             else{
@@ -116,37 +116,3 @@ bool LinkedList::exists(int){
 
     return false;
 }
-/*
-bool valid = true;
-    Node * current = head;
-    int method = 4;
-    int * methodptr = &method;
-    cout << "current: " << &current << endl;
-    while((valid) && (*methodptr >=3)){
-        if((index < 0) || (*info =="")){
-            valid = false;
-        } 
-        else if(head == NULL || index < current->data.id){
-            *methodptr = 1; //addHead
-        }
-        else if((index > current->data.id)  && (current->next != NULL)){
-            *methodptr = 2; //addMid
-            cout << "method 2" << endl;
-        }
-        else if (current->next == NULL){
-            *methodptr = 3; //addTail
-        }
-    }
-    if(valid){
-        Node * node = new Node;
-        if(*methodptr == 1){
-            addHead(node, index, info);
-        }
-        else  if(*methodptr == 2){
-            addMiddle(node, current, index, info);
-        }
-        else {
-            //addTail(node, index, info);
-        }
-    }
-    return valid;*/
