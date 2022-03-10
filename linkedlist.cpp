@@ -31,6 +31,9 @@ void LinkedList::addMiddle(Node* node, Node * current, int index, string* info){
     current->prev->next= node;  //This step is giving me issues. Previous is probably pointing to bad data  or null?
     current->prev = node;
 }
+void LinkedList::addTail(Node*, Node*, int,  string*){
+    
+}
 
 bool LinkedList::addNode(int index, string* info){
     bool valid = false;
