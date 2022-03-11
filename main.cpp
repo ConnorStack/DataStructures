@@ -31,16 +31,16 @@ int main() {
     string str3 = "";
     
     
-
-        if(list.addNode(50, &str2));
-        
-        if(list.addNode(10, &str3));
-        if(list.addNode(1, &str2));
-        if(list.addNode(20, &str1));
+    if(list.addNode(5, &str1));
+    if(list.addNode(4, &str1));
+    if(list.addNode(3, &str1));
+    if(list.addNode(2, &str1));
+    if(list.addNode(1, &str1));
        
-
-    cout << "farward " << endl;
+    if(list.deleteNode(1));
+    cout << "forward " << endl;
     list.printList(false);//delete later
+    
     cout << "reverse" << endl; //delete later
     list.printList(true);//delete later
     cout << endl;
