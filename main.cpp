@@ -36,7 +36,7 @@ int main() {
     if(list.addNode(3, &str1));
     if(list.addNode(2, &str1));
     if(list.addNode(1, &str1));
-       
+    
     //if(list.deleteNode(1));
     cout << "forward " << endl;
     list.printList(true);//delete later
@@ -44,10 +44,10 @@ int main() {
     cout << "reverse" << endl; //delete later
     list.printList(false);//delete later
 
-    Data* data;
-
-    //cout << (list.getNode(3, data)) << endl;;
-    cout << list.exists(6) << endl;
+    Data data;
+    cout << list.getCount() << endl;
+    //cout << (list.getNode(3, &data)) << endl;;
+    //cout << list.exists(6) << endl;
 
     return 0;//_________________________________________________________________________________
 

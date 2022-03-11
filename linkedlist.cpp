@@ -109,8 +109,8 @@ bool LinkedList::getNode(int id, Data* outgoing_data){
     Node* current = head;
     while(!found && current){
         if(current->data.id == id){
-            //outgoing_data->data = current->data.data;
-            //outgoing_data->id = current->data.id;
+            outgoing_data->data = current->data.data;
+            outgoing_data->id = current->data.id;
             found = true;
         }
         else{
@@ -148,7 +148,13 @@ void LinkedList::printList(bool backward){
 }
 
 int LinkedList::getCount(){
-    
+    Node * current = head;
+    int i = 0;
+    while(current){
+        i++;
+        current = current->next;
+    }
+    return i;
 }
 
 bool LinkedList::clearList(){
