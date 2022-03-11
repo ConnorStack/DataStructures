@@ -81,16 +81,25 @@ bool LinkedList::deleteNode(int delete_id){
     while(!found && current){
         if(current->data.id == delete_id){
             if(current->prev == NULL){
+                cout << "delete head case" << endl;
+                /*
                 current->next->prev =NULL;
                 head->next = current->next; 
+                current =NULL;
+                delete current;*/
+                head = current->next;
+                current->next->prev = NULL;
+                current->next = NULL;
                 delete current;
             }
             else if(current->next==NULL){
+                cout << "delete tail case" << endl;
                 current->prev->next = NULL;
                 current->prev = NULL;
                 delete current;
             }
             else{
+                cout << "delete middle case" << endl;
                 current->prev->next = current->next;
                 current->next->prev = current->prev;
                 delete current;
@@ -158,7 +167,8 @@ int LinkedList::getCount(){
 }
 
 bool LinkedList::clearList(){
-
+    Node * current = head;
+    //TODO create delete head method
     return false;
 }
 
