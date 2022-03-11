@@ -78,11 +78,9 @@ bool LinkedList::deleteNode(int delete_id){
     cout << delete_id << endl;
     Node* current = head;
     bool found = false;
-
     while(!found && current){
         if(current->data.id == delete_id){
             if(current->prev == NULL){
-                cout << "delete head" << endl;
                 current->next->prev =NULL;
                 head->next = current->next; 
                 delete current;
@@ -93,9 +91,9 @@ bool LinkedList::deleteNode(int delete_id){
                 delete current;
             }
             else{
-                cout << "current " << current->data.id << endl;
                 current->prev->next = current->next;
                 current->next->prev = current->prev;
+                delete current;
             }
             found = true;
         }
@@ -106,9 +104,20 @@ bool LinkedList::deleteNode(int delete_id){
     return found;
 }
 
-bool LinkedList::getNode(int, Data*){
-
-    return false;
+bool LinkedList::getNode(int id, Data* outgoing_data){
+    bool found = false;
+    Node* current = head;
+    while(current){
+        if(current->data.id == id){
+            outgoing_data->data = current->data.data;
+            outgoing_data->id = current->data.id;
+            found = true;
+        }
+        else{
+            current = current->next;
+        }
+    }
+    return found;
 }
 
 void LinkedList::printList(bool backward){

@@ -37,14 +37,16 @@ int main() {
     if(list.addNode(2, &str1));
     if(list.addNode(1, &str1));
        
-    if(list.deleteNode(1));
+    //if(list.deleteNode(1));
     cout << "forward " << endl;
-    list.printList(false);//delete later
+    list.printList(true);//delete later
     
     cout << "reverse" << endl; //delete later
-    list.printList(true);//delete later
-    cout << endl;
+    list.printList(false);//delete later
+    cout << "attempting getNode "<<endl << endl;
+    Data* data;
 
+    cout << (list.getNode(3, data)) << endl;;
 
     return 0;//_________________________________________________________________________________
 
