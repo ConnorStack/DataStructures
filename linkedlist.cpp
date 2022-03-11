@@ -11,6 +11,7 @@ LinkedList::LinkedList(){
 LinkedList::~LinkedList(){
 
 }
+
 void LinkedList::addHead(Node * newNode, int index, string* info){
     if(head == NULL){
         newNode->next = NULL;
@@ -28,11 +29,14 @@ void LinkedList::addHead(Node * newNode, int index, string* info){
 void LinkedList::addMiddle(Node* node, Node * current, int index, string* info){
     node->next = current;
     node->prev = current->prev;
-    current->prev->next= node;  //This step is giving me issues. Previous is probably pointing to bad data  or null?
+    current->prev->next= node;  
     current->prev = node;
 }
-void LinkedList::addTail(Node*, Node*, int,  string*){
 
+void LinkedList::addTail(Node* node, Node* current, int index,  string* info){
+    node->next = NULL;
+    node->prev = current;
+    current->next = node; //This step sets sets current's next to new node
 }
 
 bool LinkedList::addNode(int index, string* info){
@@ -42,10 +46,12 @@ bool LinkedList::addNode(int index, string* info){
     if((index >= 0) && (*info != "")){
         valid = true;
         while(current && !tail){
-            if((index > current->data.id) &&(current->next !=NULL)){
+            if((index > current->data.id) && (current->next != NULL)){
+                //This logic is not quite right. It ignores 
                 current = current->next;
             }
             else{
+
                 tail = true;
             }
         }
@@ -57,10 +63,10 @@ bool LinkedList::addNode(int index, string* info){
         }
         else if((index < current->data.id)  && (current != NULL)){
             addMiddle(node, current, index, info);
-        }/*
+        }
         else {
-            addTail(node, index, info);
-        }*/
+            addTail(node, current, index, info);
+        }
     }
     return valid;
 }

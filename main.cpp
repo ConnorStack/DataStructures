@@ -32,15 +32,12 @@ int main() {
     
     
 
-    if(list.addNode(-9, &str2));
-    if(list.addNode(-100, &str3));
-    if(list.addNode(15, &str2));
-    if(list.addNode(10, &str1));
-    if(list.addNode(11, &str2));
-    if(list.addNode(2, &str2));
-    if(list.addNode(1, &str2));
-    if(list.addNode(3, &str2));
-
+        if(list.addNode(50, &str2));
+        
+        if(list.addNode(10, &str3));
+        if(list.addNode(1, &str2));
+        if(list.addNode(20, &str1));
+       
 
     cout << "farward " << endl;
     list.printList(false);//delete later
