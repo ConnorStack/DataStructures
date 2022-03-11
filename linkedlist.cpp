@@ -107,10 +107,10 @@ bool LinkedList::deleteNode(int delete_id){
 bool LinkedList::getNode(int id, Data* outgoing_data){
     bool found = false;
     Node* current = head;
-    while(current){
+    while(!found && current){
         if(current->data.id == id){
-            outgoing_data->data = current->data.data;
-            outgoing_data->id = current->data.id;
+            //outgoing_data->data = current->data.data;
+            //outgoing_data->id = current->data.id;
             found = true;
         }
         else{
@@ -148,8 +148,7 @@ void LinkedList::printList(bool backward){
 }
 
 int LinkedList::getCount(){
-
-    return 0;
+    
 }
 
 bool LinkedList::clearList(){
@@ -157,7 +156,16 @@ bool LinkedList::clearList(){
     return false;
 }
 
-bool LinkedList::exists(int){
-
-    return false;
+bool LinkedList::exists(int id){
+    bool found = false;
+    Node* current = head;
+    while(found &&current){
+        if(current->data.id == id){
+            found = true;
+        }
+        else{
+            current = current->next;
+        }
+    }
+    return found;
 }

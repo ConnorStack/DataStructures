@@ -43,10 +43,11 @@ int main() {
     
     cout << "reverse" << endl; //delete later
     list.printList(false);//delete later
-    cout << "attempting getNode "<<endl << endl;
+
     Data* data;
 
-    cout << (list.getNode(3, data)) << endl;;
+    //cout << (list.getNode(3, data)) << endl;;
+    cout << list.exists(6) << endl;
 
     return 0;//_________________________________________________________________________________
 
