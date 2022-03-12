@@ -48,7 +48,7 @@ bool LinkedList::addNode(int index, string* info){
         valid = true;
         
         while((current) && (!tail)){
-            if((index > current->data.id) && (current->next != NULL)){
+            if(index > current->data.id){
                 tail = current;
                 current = current->next;
             }
