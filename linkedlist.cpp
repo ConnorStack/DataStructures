@@ -54,7 +54,7 @@ void LinkedList::addTail(Node* node, Node* current, int index,  string* info){
 
 //This function only works with postitive integers and non-empty strings. Contradicting data will be ignored.
 bool LinkedList::addNode(int index, string* info){
-    bool valid;  //= false;
+    bool valid = false; 
     bool duplicate = false;
     Node * current = head;
     Node * tail;
