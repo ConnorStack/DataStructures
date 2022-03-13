@@ -131,7 +131,7 @@ bool LinkedList::deleteNode(int delete_id){
 }
 
 //Returns data at specified location
-bool LinkedList::getNode(int id, Data* outgoing_data){//BUG
+bool LinkedList::getNode(int id, Data* outgoing_data){
     bool found = false;
     Node* current = head;
     while(!found && current){
