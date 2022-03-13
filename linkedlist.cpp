@@ -41,34 +41,38 @@ void LinkedList::addTail(Node* node, Node* current, int index,  string* info){
 
 bool LinkedList::addNode(int index, string* info){
     bool valid = false;
-    bool istail = false;
+    bool duplicate = false;
     Node * current = head;
     Node * tail;
     if((index >= 0) && (*info != "")){
         valid = true;
-        
-        while((current) && (!tail)){
-            if(index > current->data.id){
+        while(current && valid){
+            if(current->data.id == index){
+                valid = false;
+                duplicate = true;
+            }
+            else if(index > current->data.id){
                 tail = current;
                 current = current->next;
             }
             else{
-                istail = true;
+                valid = false;
             }
         }
-        Node * node = new Node;
-        node->data.id = index;
-        node->data.data = *info;
-        if((head == NULL) || (index < head->data.id)){ //this first case is non transverse.
-            addHead(node, index, info);
+        if(!duplicate){
+            Node * node = new Node;
+            node->data.id = index;
+            node->data.data = *info;
+            if((head == NULL) || (index <= head->data.id)){ //this first case is non transverse.
+                addHead(node, index, info);
+            }
+            else if (tail->next == NULL){
+                addTail(node, tail, index, info);
+            }
+            else{
+                addMiddle(node, current, index, info);
+            }
         }
-        else if((index < current->data.id)  && (current != NULL)){
-            addMiddle(node, current, index, info);
-        }
-        else {
-            addTail(node, current, index, info);
-        }
-    
     }
     return valid;
 }
@@ -88,7 +92,7 @@ bool LinkedList::deleteNode(int delete_id){
                 current =NULL;
                 delete current;*/
                 head = current->next;
-                current->next->prev = NULL;
+                //current->next->prev = NULL;
                 current->next = NULL;
                 delete current;
             }

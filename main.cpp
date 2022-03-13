@@ -31,21 +31,24 @@ int main() {
     string str3 = "";
     
     
-    if(list.addNode(3, &str1));
-    if(list.addNode(2, &str1));
-    if(list.addNode(1, &str1));
-    if(list.addNode(4, &str1));
-    //if(list.addNode(1, &str1));
+    if(list.addNode(17, &str1));
+    if(list.addNode(17, &str1));
     
-    //if(list.deleteNode(1));
+    //if(list.addNode(50, &str1));
+    //if(list.addNode(150, &str1));
+    
+    
+    if(list.deleteNode(17));
+    if(list.deleteNode(17));
+    if(list.deleteNode(17));
     cout << "forward " << endl;
     list.printList(true);//delete later
     
     cout << "reverse" << endl; //delete later
     list.printList(false);//delete later
 
-    Data data;
-    cout << list.getCount() << endl;
+    //Data data;
+    //cout << list.getCount() << endl;
     //cout << (list.getNode(3, &data)) << endl;;
     //cout << list.exists(6) << endl;
 
