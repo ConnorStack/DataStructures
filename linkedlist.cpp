@@ -13,13 +13,10 @@ LinkedList::LinkedList(){
 
 //Cycle through list starting at head, deleting each node til current=NULL
 LinkedList::~LinkedList(){
-    Node * current = head;
-    if(head!=NULL){
-        while(current){
-            delete current;
-            current = current->next;
-        }
-    }
+    cout << "destructor" << endl;
+
+    this->clearList();
+    
 }
 
 //Fist edge case of addNode. Integers coming in are always > 0 and *info is filled with some string.
@@ -94,15 +91,21 @@ bool LinkedList::addNode(int index, string* info){
 
 //Edgecase of deleteNode. When current-> prev == NULL, we are at the head. Two edge cases exist inside. When there is  only one node, or more.
 void LinkedList::deleteHead(Node* current){
+    cout << "delete head" <<endl;
     if(current->next != NULL){
-        head = current->next;
+        cout << "deletehead if " << endl;
+        head = current->next; // head = current->next; 
         current->next->prev = NULL;
         current = NULL;
         delete current;
     }
     else{
+        cout << "else " << endl;
+        cout << "step 1 " <<endl;
         head =  NULL;
+        cout << "step 2" << endl;
         delete head;
+        cout << "done" << endl;
     }
 
     delete current;
@@ -137,7 +140,7 @@ bool LinkedList::deleteNode(int delete_id){
 }
 
 //Returns data at specified location
-bool LinkedList::getNode(int id, Data* outgoing_data){
+bool LinkedList::getNode(int id, Data* outgoing_data){//BUG
     bool found = false;
     Node* current = head;
     while(!found && current){
@@ -194,13 +197,18 @@ int LinkedList::getCount(){
 
 //Deletes all items in linked list
 bool LinkedList::clearList(){
+    cout << "clear list " << endl;
     Node * current = head;
+    Node * temp;
     while(current){
+        temp = current->next;
         deleteHead(current);
-        current = current->next;
+        current = temp;
     }
+    //*head = NULL;
     return false;
 }
+
 //Returns true if specified item exists.
 bool LinkedList::exists(int id){
     bool found = false;

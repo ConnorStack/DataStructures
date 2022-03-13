@@ -13,7 +13,7 @@ class LinkedList{
 public:
     LinkedList();
     ~LinkedList();
-    Node *head;
+   
     bool addNode(int, string*);
     bool deleteNode(int);
     bool getNode(int, Data*);
@@ -22,6 +22,7 @@ public:
     bool clearList();
     bool exists(int);
 private:
+    Node *head;
     void addHead(Node*, int, string*);  
     void addMiddle(Node*, Node*, int, string*);  
     void addTail(Node*, Node*, int,  string*);
