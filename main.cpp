@@ -26,33 +26,51 @@ int main() {
     LinkedList list;
     cout << "done" << endl << endl;
     //__________________________________________________________________________________________
-    string str1 = "adfsa";
+    /*string str1 = "adfsa";
     string str2 = "dafda";
     string str3 = "";
     
     
     if(list.addNode(17, &str1));
-    if(list.addNode(17, &str1));
-    
-    //if(list.addNode(50, &str1));
-    //if(list.addNode(150, &str1));
-    
-    
     if(list.deleteNode(17));
-    if(list.deleteNode(17));
-    if(list.deleteNode(17));
+    list.printList(true);//delete later
+    cout << endl;
+
+
+    if(list.addNode(18, &str1));
+    if(list.addNode(50, &str1));
+    if(list.deleteNode(18));
+    list.printList(true);
+    cout <<"______________________________"<< endl;
+
+    if(list.addNode(18, &str1));
+    if(list.addNode(50, &str1));
+    if(list.deleteNode(50));
+    list.printList(true);
+    cout << endl; 
+     cout <<"______________________________"<< endl;
+
+
+    if(list.addNode(21, &str1));
+    if(list.addNode(22, &str1));
+    if(list.addNode(23, &str1));
+    if(list.deleteNode(22));   
+    cout << endl; 
+     cout <<"______________________________"<< endl;
+
+
     cout << "forward " << endl;
     list.printList(true);//delete later
     
     cout << "reverse" << endl; //delete later
-    list.printList(false);//delete later
+    //list.printList(false);//delete later
 
     //Data data;
     //cout << list.getCount() << endl;
     //cout << (list.getNode(3, &data)) << endl;;
-    //cout << list.exists(6) << endl;
+    //cout << list.exists(6) << endl;*/
 
-    return 0;//_________________________________________________________________________________
+    //return 0;//_________________________________________________________________________________
 
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;

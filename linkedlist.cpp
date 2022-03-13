@@ -77,8 +77,21 @@ bool LinkedList::addNode(int index, string* info){
     return valid;
 }
 void LinkedList::deleteHead(Node* current){
-    head = current->next;
-    current->next =  NULL;
+    if(current->next != NULL){
+        
+        head = current->next;
+        current->next->prev = NULL;
+        //current->next = NULL;
+        //current->prev = NULL;
+        current = NULL;
+        delete current;
+    }
+    else{
+        cout <<"else case: " << endl;
+        head =  NULL;
+        delete head;
+    }
+
     delete current;
 }
 bool LinkedList::deleteNode(int delete_id){
@@ -90,15 +103,7 @@ bool LinkedList::deleteNode(int delete_id){
         if(current->data.id == delete_id){
             if(current->prev == NULL){
                 cout << "delete head case" << endl;
-                /*
-                current->next->prev =NULL;
-                head->next = current->next; 
-                current =NULL;
-                delete current;*/
-                 //current->next->prev = NULL; // in second line
-                head = current->next;
-                current->next = NULL;
-                delete current;
+                deleteHead(current);
             }
             else if(current->next==NULL){
                 cout << "delete tail case" << endl;
