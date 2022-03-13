@@ -76,7 +76,11 @@ bool LinkedList::addNode(int index, string* info){
     }
     return valid;
 }
-
+void LinkedList::deleteHead(Node* current){
+    head = current->next;
+    current->next =  NULL;
+    delete current;
+}
 bool LinkedList::deleteNode(int delete_id){
     cout << "inside delete node " << endl;
     cout << delete_id << endl;
@@ -91,8 +95,8 @@ bool LinkedList::deleteNode(int delete_id){
                 head->next = current->next; 
                 current =NULL;
                 delete current;*/
+                 //current->next->prev = NULL; // in second line
                 head = current->next;
-                //current->next->prev = NULL;
                 current->next = NULL;
                 delete current;
             }
