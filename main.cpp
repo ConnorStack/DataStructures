@@ -24,50 +24,8 @@ int main() {
     //making linked list object
     cout << "creating the linked list..."<<endl;  //DELETE endl  LATER 
     LinkedList list;
+
     cout << "done" << endl << endl;
-    //__________________________________________________________________________________________
-    
-    string str1 = "adfsa";
-    string str2 = "dafda";
-    string str3 = "";
-    
-    
-    if(list.addNode(50, &str1));
-    if(list.addNode(22, &str1));
-    if(list.addNode(23, &str1));
-     
-    if(list.addNode(100, &str1));
-    if(list.addNode(22, &str1));
-    if(list.addNode(-1, &str1));
-     
-    if(list.addNode(1, &str1));
-    if(list.addNode(13, &str1));
-    if(list.addNode(7, &str1));
-    
-    /*
-    cout << endl; 
-     cout <<"______________________________"<< endl;
-
-
-    cout << "forward " << endl;
-    list.printList(true);//delete later
-    
-    cout << list.getCount() <<endl;
-    list.clearList();
-    cout << list.getCount() <<endl;
-
-
-    cout << "reverse" << endl; //delete later
-    //list.printList(false);//delete later
-
-    //Data data;
-    //cout << list.getCount() << endl;
-    //cout << (list.getNode(3, &data)) << endl;;
-    //cout << list.exists(6) << endl;
-    */
-
-    return 0;//_________________________________________________________________________________
-
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
 
@@ -83,8 +41,8 @@ int main() {
             cout << "failed" << endl;
         }
     }
-    cout << endl;//_____________________________________________________________________First AddNode Test below
-
+    cout << endl;
+    //Printing forward and backward
     cout << "checking list forward...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList();
@@ -94,7 +52,7 @@ int main() {
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList(true);
     cout << endl;
-    //_____________________________________________________________________Printing forward and backward
+    
     //randomly getting a few nodes
     int getid;
     for (int i = 0; i < 4; i++) {

@@ -1,13 +1,15 @@
 /*
  * File: linkedlist.cpp
  * Author: Connor Stack
+ * 
+ * Purpose of this file is to create a  doubly linked list that acts on a coupled int and string*.
+ * Items to be placed in ascending order. All positive int and non-empty string. No duplicate int id values.
  */
 #include "linkedlist.h"
 
 LinkedList::LinkedList(){
     head = NULL;
 }
-
 
 //Cycle through list starting at head, deleting each node til current=NULL
 LinkedList::~LinkedList(){
@@ -19,7 +21,6 @@ LinkedList::~LinkedList(){
         }
     }
 }
-
 
 //Fist edge case of addNode. Integers coming in are always > 0 and *info is filled with some string.
 void LinkedList::addHead(Node * newNode, int index, string* info){
@@ -53,7 +54,7 @@ void LinkedList::addTail(Node* node, Node* current, int index,  string* info){
 
 //This function only works with postitive integers and non-empty strings. Contradicting data will be ignored.
 bool LinkedList::addNode(int index, string* info){
-    bool valid = false;
+    bool valid;  //= false;
     bool duplicate = false;
     Node * current = head;
     Node * tail;
@@ -73,6 +74,7 @@ bool LinkedList::addNode(int index, string* info){
             }
         }
         if(!duplicate){
+            valid = true;
             Node * node = new Node;
             node->data.id = index;
             node->data.data = *info;
@@ -93,16 +95,12 @@ bool LinkedList::addNode(int index, string* info){
 //Edgecase of deleteNode. When current-> prev == NULL, we are at the head. Two edge cases exist inside. When there is  only one node, or more.
 void LinkedList::deleteHead(Node* current){
     if(current->next != NULL){
-        cout << "if case " << endl;
         head = current->next;
         current->next->prev = NULL;
-        //current->next = NULL;
-        //current->prev = NULL;
         current = NULL;
         delete current;
     }
     else{
-        cout <<"else case: " << endl;
         head =  NULL;
         delete head;
     }
@@ -111,24 +109,20 @@ void LinkedList::deleteHead(Node* current){
 }
 //deleteNode deletes an item at the specified ID, delete_id will match the id  in linked list and delete its contents/deallocate the node.
 bool LinkedList::deleteNode(int delete_id){
-    cout << "inside delete node " << endl;
     cout << delete_id << endl;
     Node* current = head;
     bool found = false;
     while(!found && current){
         if(current->data.id == delete_id){
             if(current->prev == NULL){
-                cout << "delete head case" << endl;
                 deleteHead(current);
             }
             else if(current->next==NULL){
-                cout << "delete tail case" << endl;
                 current->prev->next = NULL;
                 current->prev = NULL;
                 delete current;
             }
             else{
-                cout << "delete middle case" << endl;
                 current->prev->next = current->next;
                 current->next->prev = current->prev;
                 delete current;
