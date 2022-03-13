@@ -24,22 +24,7 @@ int main() {
     //making linked list object
     cout << "creating the linked list..."<<endl;  //DELETE endl  LATER 
     LinkedList list;
-//______________________________________________________________________________
-string a = "abc";
-if(list.addNode(4, &a));
-if(list.addNode(15, &a));
-if(list.addNode(1, &a));
-if(list.addNode(20, &a));
-if(list.addNode(17, &a));
 
-
-list.printList(false);
-//list.clearList();
-list.printList(false);
-cout << list.getCount() <<endl;
-
-return 0;
-//______________________________________________________________________________
     cout << "done" << endl << endl;
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
