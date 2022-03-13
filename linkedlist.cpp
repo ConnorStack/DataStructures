@@ -8,10 +8,20 @@ LinkedList::LinkedList(){
     head = NULL;
 }
 
-LinkedList::~LinkedList(){
 
+//Cycle through list starting at head, deleting each node til current=NULL
+LinkedList::~LinkedList(){
+    Node * current = head;
+    if(head!=NULL){
+        while(current){
+            delete current;
+            current = current->next;
+        }
+    }
 }
 
+
+//Fist edge case of addNode. Integers coming in are always > 0 and *info is filled with some string.
 void LinkedList::addHead(Node * newNode, int index, string* info){
     if(head == NULL){
         newNode->next = NULL;
@@ -26,6 +36,7 @@ void LinkedList::addHead(Node * newNode, int index, string* info){
     }
 }
 
+//Standard case. Integers coming in are always > 0 and *info is filled with some string.
 void LinkedList::addMiddle(Node* node, Node * current, int index, string* info){
     node->next = current;
     node->prev = current->prev;
@@ -33,12 +44,14 @@ void LinkedList::addMiddle(Node* node, Node * current, int index, string* info){
     current->prev = node;
 }
 
+//Edge case for  addNode, adds a tail to the  linked list. Integers coming in are always > 0 and *info is filled with some string.
 void LinkedList::addTail(Node* node, Node* current, int index,  string* info){
     node->next = NULL;
     node->prev = current;
     current->next = node; //This step sets sets current's next to new node
 }
 
+//This function only works with postitive integers and non-empty strings. Contradicting data will be ignored.
 bool LinkedList::addNode(int index, string* info){
     bool valid = false;
     bool duplicate = false;
@@ -76,6 +89,8 @@ bool LinkedList::addNode(int index, string* info){
     }
     return valid;
 }
+
+//Edgecase of deleteNode. When current-> prev == NULL, we are at the head. Two edge cases exist inside. When there is  only one node, or more.
 void LinkedList::deleteHead(Node* current){
     if(current->next != NULL){
         cout << "if case " << endl;
@@ -94,6 +109,7 @@ void LinkedList::deleteHead(Node* current){
 
     delete current;
 }
+//deleteNode deletes an item at the specified ID, delete_id will match the id  in linked list and delete its contents/deallocate the node.
 bool LinkedList::deleteNode(int delete_id){
     cout << "inside delete node " << endl;
     cout << delete_id << endl;
@@ -126,6 +142,7 @@ bool LinkedList::deleteNode(int delete_id){
     return found;
 }
 
+//Returns data at specified location
 bool LinkedList::getNode(int id, Data* outgoing_data){
     bool found = false;
     Node* current = head;
@@ -142,6 +159,7 @@ bool LinkedList::getNode(int id, Data* outgoing_data){
     return found;
 }
 
+//Prints list. If false prints forwards, if true prints backwards.
 void LinkedList::printList(bool backward){
     Node *current = head;
     bool  tail = false;
@@ -169,6 +187,7 @@ void LinkedList::printList(bool backward){
     }
 }
 
+//Returns the  number of items in the linked list.
 int LinkedList::getCount(){
     Node * current = head;
     int i = 0;
@@ -179,6 +198,7 @@ int LinkedList::getCount(){
     return i;
 }
 
+//Deletes all items in linked list
 bool LinkedList::clearList(){
     Node * current = head;
     while(current){
@@ -187,7 +207,7 @@ bool LinkedList::clearList(){
     }
     return false;
 }
-
+//Returns true if specified item exists.
 bool LinkedList::exists(int id){
     bool found = false;
     Node* current = head;

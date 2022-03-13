@@ -26,6 +26,7 @@ int main() {
     LinkedList list;
     cout << "done" << endl << endl;
     //__________________________________________________________________________________________
+    
     string str1 = "adfsa";
     string str2 = "dafda";
     string str3 = "";
@@ -43,6 +44,7 @@ int main() {
     if(list.addNode(13, &str1));
     if(list.addNode(7, &str1));
     
+    /*
     cout << endl; 
      cout <<"______________________________"<< endl;
 
@@ -62,6 +64,7 @@ int main() {
     //cout << list.getCount() << endl;
     //cout << (list.getNode(3, &data)) << endl;;
     //cout << list.exists(6) << endl;
+    */
 
     return 0;//_________________________________________________________________________________
 
