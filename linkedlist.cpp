@@ -78,7 +78,7 @@ bool LinkedList::addNode(int index, string* info){
 }
 void LinkedList::deleteHead(Node* current){
     if(current->next != NULL){
-        
+        cout << "if case " << endl;
         head = current->next;
         current->next->prev = NULL;
         //current->next = NULL;
@@ -181,7 +181,10 @@ int LinkedList::getCount(){
 
 bool LinkedList::clearList(){
     Node * current = head;
-    //TODO create delete head method
+    while(current){
+        deleteHead(current);
+        current = current->next;
+    }
     return false;
 }
 
