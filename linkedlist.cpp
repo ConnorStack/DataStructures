@@ -85,8 +85,64 @@ bool LinkedList::addNode(int index, string* info){
     }
     return valid;
 }
+/*
+deleteHead() should not have anything passed to it. If you are going to delete the head,
+you already know where it is, it's the head. You should simply check that head is or is not NULL, 
+and if it is not, then check to see if there is another node after it.
 
-//Edgecase of deleteNode. When current-> prev == NULL, we are at the head. Two edge cases exist inside. When there is  only one node, or more.
+That will give you three cases to account for:
+
+Head is null: do nothing, return false.
+Head is not null, head->next is null: delete head, set head to null, return true.
+Head is not null, head->next is not null: set temp to head, set head to head->next, delete temp
+*/
+
+//Edgecase of deleteNode. When head-> prev == NULL, we are at the head. Two edge cases exist inside. When there is only one node, or more.
+
+
+bool LinkedList::deleteHead(){
+    bool head_filled = true;
+    Node *temp;
+    if(head == NULL){
+        head_filled= false;
+        //delete head; //When I swap these I get a memory  allocation error
+        //head = NULL;
+    }
+    else if(head->next == NULL){
+        //head = head->next; 
+        //head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
+        delete head;
+        head = NULL;
+    }
+    else if(head->next != NULL){
+        temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    return head_filled;
+}
+
+/*
+bool LinkedList::deleteHead(){
+    bool head_is_null = false;
+    if(head != NULL){
+        head = head->next; 
+        head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
+        delete head;
+        head = NULL;
+    }
+    else{
+        head_is_null = true;
+        delete head; //When I swap these I get a memory  allocation error
+        head = NULL;
+    }
+
+    return head_is_null;
+}
+*/
+
+/*
 void LinkedList::deleteHead(Node* current){
     if(current->next != NULL){
         head = current->next; 
@@ -101,7 +157,9 @@ void LinkedList::deleteHead(Node* current){
 
     delete current;
 }
-//deleteNode deletes an item at the specified ID, delete_id will match the id  in linked list and delete its contents/deallocate the node.
+*/
+
+//deleteNode deletes an item at the specified ID, delete_id will match the id in linked list and delete its contents/deallocate the node.
 bool LinkedList::deleteNode(int delete_id){
     //cout << delete_id << endl;
     Node* current = head;
@@ -109,7 +167,7 @@ bool LinkedList::deleteNode(int delete_id){
     while(!found && current){
         if(current->data.id == delete_id){
             if(current->prev == NULL){
-                deleteHead(current);
+                deleteHead(); //  deleteHead(current);
             }
             else if(current->next == NULL){
                 current->prev->next = NULL;
@@ -190,13 +248,12 @@ int LinkedList::getCount(){
 bool LinkedList::clearList(){
     Node * current = head;
     Node * temp;
-    while(current){
-        temp = current->next;
-        deleteHead(current);
-        current = temp;
+    while(head){ //while(current)
+        //temp = current->next;
+        deleteHead(); // deleteHead(current);
+        //current = temp;
     }
-    //*head = NULL;
-    return false;
+    return false; //occasional bug, might be because how bool is always returning false.
 }
 
 //Returns true if specified item exists.

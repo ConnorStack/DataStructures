@@ -30,7 +30,22 @@ int main() {
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
 
     cout << endl;
+    /*
+    string str = "asdf" ;
+    
+    list.addNode(2, &str);
+    list.addNode(4, &str);
+    list.addNode(3, &str);
+    list.addNode(1, &str);
+    list.printList(false);
 
+    list.clearList();
+    cout << "list cleared" << endl;
+
+    list.printList(false);
+*/
+
+    
     //adding all the test data to the list
     for (int i = 0; i < numTestData; i++) {
         testdata.getDataElement(i, &tmpData);

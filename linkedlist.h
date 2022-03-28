@@ -26,7 +26,7 @@ private:
     void addHead(Node*, int, string*);  
     void addMiddle(Node*, Node*, int, string*);  
     void addTail(Node*, Node*, int,  string*);
-    void deleteHead(Node*);
+    bool deleteHead();
 
 };
 #endif //LINKEDLIST_H
