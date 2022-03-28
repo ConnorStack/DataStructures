@@ -111,17 +111,19 @@ int main() {
             cout << "failed" << endl;
         }
     }
-    cout << endl;
-
+    cout << endl; 
+    cout << "step 1" << endl; //DELETE LATER
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList();
     cout << endl;
-
+    
+    cout << "step 2" << endl; //DELETE LATER
     cout << "clearing list...";
     list.clearList();
     cout << "done" << endl << endl;
 
+    cout << "step 3" << endl; //DELETE LATER
     cout << "checking list...\n";
     cout << "\tThere are " << list.getCount() << " nodes." << endl;
     list.printList();

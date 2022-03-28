@@ -102,7 +102,7 @@ Head is not null, head->next is not null: set temp to head, set head to head->ne
 
 bool LinkedList::deleteHead(){
     bool head_filled = true;
-    Node *temp;
+   
     if(head == NULL){
         head_filled= false;
         //delete head; //When I swap these I get a memory  allocation error
@@ -111,13 +111,15 @@ bool LinkedList::deleteHead(){
     else if(head->next == NULL){
         //head = head->next; 
         //head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
-        delete head;
+        //delete head;
         head = NULL;
     }
-    else if(head->next != NULL){
+    else {//if(head->next != NULL){
+        Node *temp;
         temp = head;
         head = head->next;
         delete temp;
+        head->prev = nullptr;
     }
 
     return head_filled;
@@ -173,11 +175,13 @@ bool LinkedList::deleteNode(int delete_id){
                 current->prev->next = NULL;
                 current->prev = NULL;
                 delete current;
+                current  = nullptr; // testing 
             }
             else{
                 current->prev->next = current->next;
                 current->next->prev = current->prev;
                 delete current;
+                current = nullptr; // testing 
             }
             found = true;
         }
@@ -247,7 +251,7 @@ int LinkedList::getCount(){
 //Deletes all items in linked list
 bool LinkedList::clearList(){
     Node * current = head;
-    Node * temp;
+    //Node * temp;
     while(head){ //while(current)
         //temp = current->next;
         deleteHead(); // deleteHead(current);
