@@ -90,20 +90,20 @@ bool LinkedList::addNode(int index, string* info){
 void LinkedList::deleteHead(Node* current){
     if(current->next != NULL){
         head = current->next; 
-        current->next->prev = NULL;
-        current = NULL;
+        head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
         delete current;
+        current = NULL;
     }
     else{
-        head =  NULL;
-        delete head;
+        head = NULL;
+        delete head; //When I swap these I get a memory  allocation error
     }
 
     delete current;
 }
 //deleteNode deletes an item at the specified ID, delete_id will match the id  in linked list and delete its contents/deallocate the node.
 bool LinkedList::deleteNode(int delete_id){
-    cout << delete_id << endl;
+    //cout << delete_id << endl;
     Node* current = head;
     bool found = false;
     while(!found && current){
@@ -111,7 +111,7 @@ bool LinkedList::deleteNode(int delete_id){
             if(current->prev == NULL){
                 deleteHead(current);
             }
-            else if(current->next==NULL){
+            else if(current->next == NULL){
                 current->prev->next = NULL;
                 current->prev = NULL;
                 delete current;
