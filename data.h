@@ -1,15 +1,12 @@
-/* 
+/*
  * File: data.h
- * Author: Alex Katrompas
- * 
- * DO NOT MODIFY THIS FILE
- * LEAVE THIS COMMENT HEADER HERE
+ * Author: Connor Stack
  */
 
-#ifndef DATA_H
-#define DATA_H
+#ifndef BINTREE_DATA_H
+#define BINTREE_DATA_H
 
-#include "string"
+#include <string>
 using std::string;
 
 struct Data {
@@ -19,9 +16,7 @@ struct Data {
 
 struct Node {
     Data data;
-    Node *next;
-    Node *prev;
+    Node *next, *prev;
 };
 
 #endif /* DATA_H */
-

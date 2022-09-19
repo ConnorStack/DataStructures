@@ -85,21 +85,9 @@ bool LinkedList::addNode(int index, string* info){
     }
     return valid;
 }
-/*
-deleteHead() should not have anything passed to it. If you are going to delete the head,
-you already know where it is, it's the head. You should simply check that head is or is not NULL, 
-and if it is not, then check to see if there is another node after it.
 
-That will give you three cases to account for:
-
-Head is null: do nothing, return false.
-Head is not null, head->next is null: delete head, set head to null, return true.
-Head is not null, head->next is not null: set temp to head, set head to head->next, delete temp
-*/
 
 //Edgecase of deleteNode. When head-> prev == NULL, we are at the head. Two edge cases exist inside. When there is only one node, or more.
-
-
 bool LinkedList::deleteHead(){
     bool head_filled = true;
    
@@ -125,45 +113,9 @@ bool LinkedList::deleteHead(){
     return head_filled;
 }
 
-/*
-bool LinkedList::deleteHead(){
-    bool head_is_null = false;
-    if(head != NULL){
-        head = head->next; 
-        head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
-        delete head;
-        head = NULL;
-    }
-    else{
-        head_is_null = true;
-        delete head; //When I swap these I get a memory  allocation error
-        head = NULL;
-    }
-
-    return head_is_null;
-}
-*/
-
-/*
-void LinkedList::deleteHead(Node* current){
-    if(current->next != NULL){
-        head = current->next; 
-        head->prev = NULL;//current->next->prev = NULL; This code is  essentailly the same thing but not as clear
-        delete current;
-        current = NULL;
-    }
-    else{
-        head = NULL;
-        delete head; //When I swap these I get a memory  allocation error
-    }
-
-    delete current;
-}
-*/
-
 //deleteNode deletes an item at the specified ID, delete_id will match the id in linked list and delete its contents/deallocate the node.
 bool LinkedList::deleteNode(int delete_id){
-    //cout << delete_id << endl;
+    cout << delete_id << endl;
     Node* current = head;
     bool found = false;
     while(!found && current){

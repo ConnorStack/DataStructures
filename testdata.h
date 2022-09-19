@@ -51,6 +51,6 @@ private:
     bool inIntArray(int *haystack, int needle, const int SIZE);
 
 };
-
+////
 #endif /* TESTDATA_H */
 
